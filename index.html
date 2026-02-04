@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vajbing vajbing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b4e 100%);
+            overflow: hidden;
+        }
+        h1 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-size: clamp(3rem, 12vw, 10rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #ff6b6b);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s linear infinite, pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 80px rgba(255, 107, 107, 0.5);
+            filter: drop-shadow(0 0 30px rgba(255, 107, 107, 0.3));
+        }
+        @keyframes gradient {
+            to {
+                background-position: 200% center;
+            }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+        .glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: float 6s ease-in-out infinite;
+        }
+        .glow-1 {
+            background: #ff6b6b;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        .glow-2 {
+            background: #48dbfb;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -3s;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(30px, 30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <h1>vajbing vajbing</h1>
+</body>
+</html>
