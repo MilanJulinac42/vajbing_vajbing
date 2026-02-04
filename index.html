@@ -14,26 +14,29 @@
             box-sizing: border-box;
         }
         body {
-            height: 100vh;
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: center;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b4e 100%);
             overflow: hidden;
+            padding: 1rem;
         }
         h1 {
             font-family: 'Space Grotesk', system-ui, sans-serif;
-            font-size: clamp(3rem, 12vw, 10rem);
+            font-size: clamp(2.5rem, 10vw, 10rem);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            text-align: center;
+            line-height: 1.1;
             background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #ff6b6b);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradient 3s linear infinite, pulse 2s ease-in-out infinite;
-            text-shadow: 0 0 80px rgba(255, 107, 107, 0.5);
             filter: drop-shadow(0 0 30px rgba(255, 107, 107, 0.3));
         }
         @keyframes gradient {
@@ -51,31 +54,65 @@
         }
         .glow {
             position: fixed;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.4;
+            filter: blur(80px);
+            opacity: 0.5;
             animation: float 6s ease-in-out infinite;
+            pointer-events: none;
         }
         .glow-1 {
             background: #ff6b6b;
-            top: -100px;
-            left: -100px;
+            top: -50px;
+            left: -50px;
             animation-delay: 0s;
         }
         .glow-2 {
             background: #48dbfb;
-            bottom: -100px;
-            right: -100px;
+            bottom: -50px;
+            right: -50px;
             animation-delay: -3s;
+        }
+        .glow-3 {
+            background: #feca57;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 4s ease-in-out infinite;
         }
         @keyframes float {
             0%, 100% {
                 transform: translate(0, 0);
             }
             50% {
-                transform: translate(30px, 30px);
+                transform: translate(20px, 20px);
+            }
+        }
+        @keyframes pulse-glow {
+            0%, 100% {
+                opacity: 0.2;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: clamp(2rem, 15vw, 4rem);
+            }
+            .glow {
+                width: 200px;
+                height: 200px;
+                filter: blur(60px);
+            }
+            .glow-3 {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
@@ -83,6 +120,7 @@
 <body>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
     <h1>vajbing vajbing</h1>
 </body>
 </html>
